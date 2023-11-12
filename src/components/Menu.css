@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat'),
+      url('../fonts/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: local('Oswald'),
+      url('../fonts/Oswald-Light.ttf') format('truetype');
+}
 .menu-block{
     width: 25%;
     height: 100%;
@@ -12,4 +23,69 @@
 .menu-block h2{
     padding-top: 15px;
     padding-left: 20px;
+}
+.task-block{
+    padding: 10px 20px;
+
+}
+.task-block li{
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.task-block li:hover{
+    background-color: rgba(0, 0, 0, 0.029)
+}
+.task-block li a{
+    color: #000;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 16px;
+}
+.task-block li img{
+    width: 14.5px;
+    margin-right: 6.5px;
+}
+.list-block {
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.426);
+    width: 88%;
+    margin-left: 6%;
+}
+.lists-title{
+    font-size: 18.5px;
+    color: #000000c8;
+    padding-left: 5px;
+    font-family: 'Oswald';
+    font-weight: 500;
+    letter-spacing:2px;
+}
+.list-block li{
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.list-block li:hover{
+    background-color: rgba(0, 0, 0, 0.029)
+}
+.list-block li a{
+    color: #000;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+}
+.list-block li span{
+    border-radius: 4px;
+    width: 15px;
+    height: 15px;
+    background-color: cornflowerblue;
+    display: flex;
+    margin-right: 5px;
 }
