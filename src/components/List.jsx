@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 
 const List = (props) =>{
     return(
-        <li><NavLink to={'/list?' + props.title }><span style={{background: props.color}}></span> {props.title}</NavLink></li>
+        <li onClick={()=> props.setCurrentPageId(props.id)}><span style={{background: props.color}}></span> {props.title}</li>
     )
 }
 
