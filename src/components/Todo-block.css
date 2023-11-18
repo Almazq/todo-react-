@@ -45,10 +45,32 @@
 }
 .todo-block__checkbox{
     display: flex;
-    border: 1px solid #000;
+    border: 1px solid #344fa2;
     border-radius: 6px;
     width: 18px;
     height: 18px;
     margin-right: 8px;
     cursor: pointer;
 }
+.todo-block__checkbox.checked{
+    background-color: #344fa2;
+    border: 1px solid #ffecbf;
+    position: relative;
+}
+.todo-block__checkbox.checked:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 7px;
+    left: 3px;
+    width: 13px;
+    height: 4px;
+    border-right: 2.5px solid #fff;
+    border-top: 2.5px solid #fff;
+    transform: rotate(135deg);
+  }
+  .todo-block__todo.checked{
+    background-color: rgb(182 182 182 / 53%);
+    color: #0000005e;
+    text-decoration: line-through;
+  }

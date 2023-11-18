@@ -18,12 +18,13 @@ const TodoBlock = (props) =>{
             id: id
         })
     }
+    console.log(currentData.info)
     return(
         <div className='todo-block'>
             <h2 className="todo-block__title">Todo</h2>
             <div className="todo-block__todos">
-                {currentData.info.map(elem => <div className='todo-block__todo' key={elem.id}>
-                    <span className='todo-block__checkbox' onClick={()=> checkFc(elem.id)} ></span> {elem.text} 
+                {currentData.info.map(elem => <div className={elem.status ? 'todo-block__todo checked' :'todo-block__todo'} key={elem.id}>
+                    <span className={elem.status ? 'todo-block__checkbox checked' : 'todo-block__checkbox'} onClick={()=> checkFc(elem.id)} ></span> {elem.text} 
                 </div>)}
             </div>
            

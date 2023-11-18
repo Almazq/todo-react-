@@ -27,8 +27,9 @@ export function reducer(state, action, payload) {
         case 'check-todoList':
             let copy  = [...state.todoList];
             let current = copy.find(t=> t.id == action.parentId);
-            let status = current.info.find(e=> e.id == action.id).status
-            current.info.find(e=> e.id == action.id).status = !status;
+            let status = !current.info.find(e=> e.id == action.id).status;
+            current.info.find(e=> e.id == action.id).status = status;
+
             return{
                 ...state,
                 todoList:state.todoList.map(u =>{
@@ -42,3 +43,6 @@ export function reducer(state, action, payload) {
         return state;
     }
 }
+//на завтра 
+// 1.Сделать что бы после галочки уходил в конец массива
+// 2. кнопка добавить тоду
