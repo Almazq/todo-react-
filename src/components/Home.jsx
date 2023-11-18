@@ -12,7 +12,6 @@ export const stateContext = React.createContext({});
 const Home = () =>{
     const [currentPageId , setCurrentPageId] = useState(0)
     const [state , dispach] = useReducer(reducer , initialState);
-    
     return(
         <div className='conteiner'>
             <stateContext.Provider value={{state , dispach}}>

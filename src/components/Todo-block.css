@@ -1,4 +1,54 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat'),
+      url('../fonts/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: local('Oswald'),
+      url('../fonts/Oswald-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway';
+    src: local('Raleway'),
+      url('../fonts/Raleway-Medium.ttf') format('truetype');
+}
 .todo-block{
     width: 73%;
     padding: 30px;
+    padding-top: 5%;
+}
+.todo-block__title{
+    text-align: center;
+    font-family: 'Oswald';
+    font-weight: 500;
+    font-size: 40px;
+    margin-bottom: 15px;
+
+}
+.todo-block__todos{
+    width: 100%;
+    padding: 0 10%;
+}
+.todo-block__todo{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-family: 'Raleway';
+    font-weight: 300;
+    font-size: 18px;
+    width: 100%;
+    background-color: rgb(246 246 246);
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+.todo-block__checkbox{
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 6px;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
 }

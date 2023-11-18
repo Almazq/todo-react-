@@ -23,6 +23,8 @@
 .menu-block h2{
     padding-top: 15px;
     padding-left: 20px;
+    font-family: 'Oswald';
+    font-weight: 500;
 }
 .task-block{
     padding: 10px 20px;

@@ -3,7 +3,6 @@ import './Menu.css';
 import '../fonts/Montserrat-Medium.ttf';
 import '../fonts/Oswald-Light.ttf';
 
-import {NavLink} from 'react-router-dom';
 import imgArrow from '../assets/arrow.svg';
 import imgMenu from '../assets/menu.svg';
 import imgSticker from '../assets/sticker.svg';

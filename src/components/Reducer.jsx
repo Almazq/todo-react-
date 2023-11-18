@@ -24,12 +24,20 @@ export function reducer(state, action, payload) {
     switch (action.type) {
         case 'add':
             return {todo: [...state.todo , payload]};
-        case 'check':
-            const copy = [...state.todo]
-            const currentParent = copy.find(t => t.id == payload.parent.id);
-            const current = currentParent.find(t => t.id = payload.id);
-            current.status = !current.status;
-            return {todo : copy} ;
+        case 'check-todoList':
+            let copy  = [...state.todoList];
+            let current = copy.find(t=> t.id == action.parentId);
+            let status = current.info.find(e=> e.id == action.id).status
+            current.info.find(e=> e.id == action.id).status = !status;
+            return{
+                ...state,
+                todoList:state.todoList.map(u =>{
+                  if(u.id === action.parentId){
+                    return current;
+                  }
+                  return u;
+                })
+            }
         default:
         return state;
     }
