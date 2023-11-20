@@ -51,10 +51,23 @@ export function reducer(state, action, payload) {
                   return u;
                 })
             }
+
+        case 'delete-todoList':
+            return {
+                ...state,
+                todoList: state.todoList.map(u=>{
+                    if(u.id == action.parentId){
+                        let newInfo = u.info.filter(t=> t.id != action.id);
+                        return {...u, 
+                            info: newInfo}
+                    }
+                    return u;
+                }) };
         default:
         return state;
     }
 }
 //на завтра 
-// 1.Сделать что бы после галочки уходил в конец массива
-// 2. кнопка добавить тоду
+// 1.удаления
+// 2.другие листы 
+// 3. стик 

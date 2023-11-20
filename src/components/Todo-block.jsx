@@ -5,7 +5,7 @@ import '../fonts/Raleway-Medium.ttf';
 
 import '../fonts/Oswald-Light.ttf';
 import { stateContext } from './Home';
-import svgPlus from '../assets/plus.svg'
+import svgDelete from '../assets/delete.svg'
 
 
 const TodoBlock = (props) =>{
@@ -28,12 +28,20 @@ const TodoBlock = (props) =>{
             newTaskText: inputValue
         })
     }
+    const deleteTask = (id)=>{
+        context.dispach({
+            type :'delete-todoList' ,
+            parentId: props.currentPageId,
+            id: id
+        })
+    }
     return(
         <div className='todo-block'>
             <h2 className="todo-block__title">Todo</h2>
             <div className="todo-block__todos">
                 {currentData.info.map(elem => <div className={elem.status ? 'todo-block__todo checked' :'todo-block__todo'} key={elem.id} style={{order: elem.status ? currentData.info.length : "0"}}>
-                    <span className={elem.status ? 'todo-block__checkbox checked' : 'todo-block__checkbox'} onClick={()=> checkFc(elem.id)} ></span> {elem.text} 
+                    <span className={elem.status ? 'todo-block__checkbox checked' : 'todo-block__checkbox'} onClick={()=> checkFc(elem.id)} ></span> <div className="task-text">{elem.text} </div>
+                    <div className="delete-task" onClick={()=> deleteTask(elem.id)}><img src={svgDelete} alt="delete"/></div>
                 </div>)}
             </div>
             <div className={inputValue.length > 0  ? "todo-add active" : "todo-add"}>
