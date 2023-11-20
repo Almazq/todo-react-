@@ -2,7 +2,6 @@ import React  from 'react';
 import './Menu.css';
 import '../fonts/Montserrat-Medium.ttf';
 import '../fonts/Oswald-Light.ttf';
-
 import imgArrow from '../assets/arrow.svg';
 import imgMenu from '../assets/menu.svg';
 import imgSticker from '../assets/sticker.svg';
@@ -26,7 +25,7 @@ const Menu = (props) =>{
                 <div className="list-block">
                     <p className="lists-title">lists</p>
                     <ul>
-                        {context.state.todoList.map(elem => <List id={elem.id} color = {elem.color} title= {elem.title} setCurrentPageId={props.setCurrentPageId}/>)}
+                        {context.state.todoList.map(elem => <List id={elem.id} currentPageId = {props.currentPageId} color = {elem.color} title= {elem.title} setCurrentPageId={props.setCurrentPageId}/>)}
                     </ul>
                 </div>
             </div>

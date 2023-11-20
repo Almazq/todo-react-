@@ -91,3 +91,6 @@
     display: flex;
     margin-right: 8px;
 }
+.list.active{
+    background-color: rgba(0, 0, 0, 0.046)
+}

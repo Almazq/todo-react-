@@ -15,7 +15,7 @@ const Home = () =>{
     return(
         <div className='conteiner'>
             <stateContext.Provider value={{state , dispach}}>
-                <Menu  setCurrentPageId= {setCurrentPageId}/>
+                <Menu  setCurrentPageId= {setCurrentPageId} currentPageId = {currentPageId}/>
                 <TodoBlock currentPageId = {currentPageId} />
 
             </stateContext.Provider>

@@ -18,6 +18,7 @@
     width: 73%;
     padding: 30px;
     padding-top: 5%;
+    position: relative;
 }
 .todo-block__title{
     text-align: center;
@@ -30,6 +31,10 @@
 .todo-block__todos{
     width: 100%;
     padding: 0 10%;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.5s;
+
 }
 .todo-block__todo{
     display: flex;
@@ -42,6 +47,7 @@
     background-color: rgb(246 246 246);
     padding: 20px 20px;
     border-radius: 10px;
+    transition: 0.5s;
 }
 .todo-block__checkbox{
     display: flex;
@@ -73,4 +79,66 @@
     background-color: rgb(182 182 182 / 53%);
     color: #0000005e;
     text-decoration: line-through;
+  }
+  .todo-add{
+    width: 66%;
+    position: absolute;
+    bottom: 5px;
+    height: 70px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffecbf;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+  }
+  .todo-add.active{
+    background-color: #f9ac8d;
+    border-radius: 20px;
+  }
+  .todo-add__input{
+    width: 85%;
+    height: auto;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: 11px 12px ;
+    font-size: 17px;
+    font-weight: 300;
+    font-family: 'Raleway';
+
+  }
+  .todo-add:hover{
+    background-color: #f9ac8d;
+    border-radius: 20px;
+  }
+  .todo-add__btn{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #ffecbf;
+    font-size: 55px;
+    border-radius: 50px;
+    position: relative;
+    margin-left: 10px;
+    transition: 0.5s;
+  }
+  .todo-add__btn span{
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+  }
+  .todo-add__btn.active{
+    color: #e98760;
+    transition: 0.5s;
+  }
+  .todo-add__btn:hover {
+    color: #e98760;
   }

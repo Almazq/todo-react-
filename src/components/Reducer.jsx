@@ -9,12 +9,9 @@ export const initialState = {
     ],
     todoList:[
         {id:3 , title : 'Study' , color : "green" , info : [
-            {id:0 , status : false , text : "Учить англ"},
-            {id:1 , status : true , text : "не учить англ"},
         ]},
         {id:4 , title : 'Work' , color : "pink" , info : [
-            {id:0 , status : true , text : "Пойти на работу"},
-            {id:1 , status : true , text : "Вернутся из работы"},
+            
         ]},
     ]
     
@@ -23,13 +20,28 @@ export const initialState = {
 export function reducer(state, action, payload) {
     switch (action.type) {
         case 'add':
-            return {todo: [...state.todo , payload]};
+            return {
+                ...state,
+                todoList: state.todoList.map(u=>{
+                    if(u.id == action.parentId){
+                        return {...u, 
+                            info: [...u.info , {id: u.info.length , status:false , text: action.newTaskText}]}
+                    }
+                    return u;
+                }) };
+
         case 'check-todoList':
             let copy  = [...state.todoList];
             let current = copy.find(t=> t.id == action.parentId);
             let status = !current.info.find(e=> e.id == action.id).status;
+            let elem = current.info.find(e=> e.id == action.id);
             current.info.find(e=> e.id == action.id).status = status;
-
+            // if(status == true){
+            //     let itemChange = current.info.filter(e => e != elem)
+            //     itemChange.push(elem)
+            //     current.info = itemChange;
+            // }
+            
             return{
                 ...state,
                 todoList:state.todoList.map(u =>{
