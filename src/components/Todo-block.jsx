@@ -22,12 +22,15 @@ const TodoBlock = (props) =>{
         })
     }
     const addTask = ()=>{
-        setInputValue('');
-        context.dispach({
-            type : props.currentPageId > 2 ? 'add-todoList' : 'add-todo',
-            parentId: props.currentPageId,
-            newTaskText: inputValue
-        })
+        if(inputValue.length > 0){
+            setInputValue('');
+            context.dispach({
+                type : props.currentPageId > 2 ? 'add-todoList' : 'add-todo',
+                parentId: props.currentPageId,
+                newTaskText: inputValue
+            })
+        }
+        
         
     }
     const deleteTask = (id)=>{

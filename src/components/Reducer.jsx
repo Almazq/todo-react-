@@ -1,6 +1,7 @@
 export const initialState = {
     todo:[
         {id:0 , title : 'Upcoming' , info : [
+            {id:0  , status: false , text: 'Welcome'},
         ]},
         {id:1 , title : 'Today' , info : [
         ]},
@@ -108,6 +109,5 @@ export function reducer(state, action, payload) {
         return state;
     }
 }
-//на завтра 
-// 1.другие листы 
-// 2. стик 
+// 1.надо добавления list
+// 2.смена темы 

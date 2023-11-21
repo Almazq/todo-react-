@@ -34,12 +34,23 @@
     display: flex;
     flex-wrap: wrap;
     transition: 0.5s;
-
+    overflow-y: auto;
+    max-height: 70%;
+}
+.todo-block__todos::-webkit-scrollbar {
+  width: 6px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: #14386100;
+}
+.todo-block__todos::-webkit-scrollbar-thumb {
+  background-color: #e6784dd8;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
 }
 .todo-block__todo{
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 8px 0;
     font-family: 'Raleway';
     font-weight: 300;
     font-size: 18px;
