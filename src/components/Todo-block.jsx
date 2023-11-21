@@ -14,8 +14,9 @@ const TodoBlock = (props) =>{
     const currentData = props.currentPageId < 3 ? context.state.todo.find(t => t.id == props.currentPageId) : context.state.todoList.find(t => t.id == props.currentPageId)
     
     const checkFc = (id)=>{
+        
         context.dispach({
-            type :'check-todoList' ,
+            type : props.currentPageId > 2 ?  'check-todoList' : 'check-todo',
             parentId: props.currentPageId,
             id: id
         })
@@ -23,14 +24,15 @@ const TodoBlock = (props) =>{
     const addTask = ()=>{
         setInputValue('');
         context.dispach({
-            type :'add' ,
+            type : props.currentPageId > 2 ? 'add-todoList' : 'add-todo',
             parentId: props.currentPageId,
             newTaskText: inputValue
         })
+        
     }
     const deleteTask = (id)=>{
         context.dispach({
-            type :'delete-todoList' ,
+            type : props.currentPageId > 2 ? 'delete-todoList' :  'delete-todo',
             parentId: props.currentPageId,
             id: id
         })

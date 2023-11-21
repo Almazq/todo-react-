@@ -16,9 +16,9 @@ const Menu = (props) =>{
                 <h2>Menu</h2>
                 <div className="task-block">
                     <ul>
-                        <li onClick={()=> props.setCurrentPageId(0)}><img src={imgArrow} /> Upcoming</li>
-                        <li onClick={()=> props.setCurrentPageId(1)}><img src={imgMenu} /> Today</li>
-                        <li onClick={()=> props.setCurrentPageId(2)}><img src={imgSticker} /> Sticky Wall</li>
+                        <li onClick={()=> props.setCurrentPageId(0)} className={props.currentPageId == 0 ? 'menuItem active' : 'menuItem'}><img src={imgArrow} /> Upcoming</li>
+                        <li onClick={()=> props.setCurrentPageId(1)} className={props.currentPageId == 1 ? 'menuItem active' : 'menuItem'}><img src={imgMenu} /> Today</li>
+                        <li onClick={()=> props.setCurrentPageId(2)} className={props.currentPageId == 2 ? 'menuItem active' : 'menuItem'}><img src={imgSticker} /> Sticky Wall</li>
                     </ul>
                 </div>
                

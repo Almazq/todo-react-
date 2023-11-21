@@ -92,5 +92,9 @@
     margin-right: 8px;
 }
 .list.active{
-    background-color: rgba(0, 0, 0, 0.046)
+    background-color: rgba(0, 0, 0, 0.046);
+}
+.menuItem.active{
+    background-color: rgba(0, 0, 0, 0.046);
+
 }

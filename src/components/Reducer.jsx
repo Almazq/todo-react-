@@ -19,7 +19,7 @@ export const initialState = {
 
 export function reducer(state, action, payload) {
     switch (action.type) {
-        case 'add':
+        case 'add-todoList':
             return {
                 ...state,
                 todoList: state.todoList.map(u=>{
@@ -31,24 +31,21 @@ export function reducer(state, action, payload) {
                 }) };
 
         case 'check-todoList':
-            let copy  = [...state.todoList];
-            let current = copy.find(t=> t.id == action.parentId);
-            let status = !current.info.find(e=> e.id == action.id).status;
-            let elem = current.info.find(e=> e.id == action.id);
-            current.info.find(e=> e.id == action.id).status = status;
-            // if(status == true){
-            //     let itemChange = current.info.filter(e => e != elem)
-            //     itemChange.push(elem)
-            //     current.info = itemChange;
-            // }
-            
             return{
                 ...state,
                 todoList:state.todoList.map(u =>{
-                  if(u.id === action.parentId){
-                    return current;
-                  }
-                  return u;
+                    if(u.id === action.parentId){
+                        return{
+                            ...u , 
+                            info : u.info.map(i => {
+                                if(i.id == action.id){
+                                    return {...i , status : !i.status}
+                                }
+                                return i;
+                            })
+                        }
+                    }
+                    return u;
                 })
             }
 
@@ -62,12 +59,55 @@ export function reducer(state, action, payload) {
                             info: newInfo}
                     }
                     return u;
+                }) 
+            };
+
+        case 'add-todo':
+            return {
+                ...state,
+                todo: state.todo.map(u=>{
+                    if(u.id == action.parentId){
+                        return {...u, 
+                            info: [...u.info , {id: u.info.length , status:false , text: action.newTaskText}]}
+                    }
+                    return u;
                 }) };
+        case 'check-todo':
+            return{
+                ...state,
+                todo:state.todo.map(u =>{
+                    if(u.id === action.parentId){
+                        return{
+                            ...u , 
+                            info : u.info.map(i => {
+                                if(i.id == action.id){
+                                    return {...i , status : !i.status}
+                                }
+                                return i;
+                            })
+                        }
+                    }
+                    return u;
+                })
+            }
+
+        case 'delete-todo':
+            return {
+                ...state,
+                todo: state.todo.map(u=>{
+                    if(u.id == action.parentId){
+                        let newInfo = u.info.filter(t=> t.id != action.id);
+                        return {...u, 
+                            info: newInfo}
+                    }
+                    return u;
+                }) 
+            };
+
         default:
         return state;
     }
 }
 //на завтра 
-// 1.удаления
-// 2.другие листы 
-// 3. стик 
+// 1.другие листы 
+// 2. стик 
