@@ -107,7 +107,7 @@ export function reducer(state, action, payload) {
         case 'add-list':
             return{
                 ...state, 
-                todoList : [...state.todoList , {id : state.todoList.at(-1).id +1 , title: action.title , color:action.color , info : []}]
+                todoList : [...state.todoList , {id :  state.todoList.at(-1) == undefined ? 0 : state.todoList.at(-1).id+1 , title: action.title , color:action.color , info : []}]
             }
         case 'delete-list':
             return{
@@ -119,6 +119,5 @@ export function reducer(state, action, payload) {
         return state;
     }
 }
-// 1.надо добавления list
-// удаления
-// 2.смена темы 
+// 3. стик 
+// 4. алерты красивые

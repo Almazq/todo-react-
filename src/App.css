@@ -11,9 +11,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  transition: 0.5s;
+
 }
-.App::after{
-  content: '';
+.sonAndMoon{
+  transition: 0.5s;
   width: 150px;
   height: 150px;
   background-color: #e6794d;
@@ -23,4 +26,5 @@
   top: 10%;
   box-shadow: 0px 0px 25px #e6794d;
 
+  cursor: pointer;
 }

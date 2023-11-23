@@ -9,11 +9,11 @@ import {initialState} from './Reducer.jsx';
 
 export const stateContext = React.createContext({});
 
-const Home = () =>{
+const Home = (props) =>{
     const [currentPageId , setCurrentPageId] = useState(0)
     const [state , dispach] = useReducer(reducer , initialState);
     return(
-        <div className='conteiner'>
+        <div className='conteiner' style={{background:props.isThemsDay ? "#fff" : "rgb(251 255 213)"}}>
             <stateContext.Provider value={{state , dispach}}>
                 <Menu  setCurrentPageId= {setCurrentPageId} currentPageId = {currentPageId}/>
                 <TodoBlock currentPageId = {currentPageId} />
