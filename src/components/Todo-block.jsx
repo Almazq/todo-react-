@@ -12,7 +12,6 @@ const TodoBlock = (props) =>{
     const [inputValue , setInputValue] = useState('');
     const context = React.useContext(stateContext);
     const currentData = props.currentPageId < 3 ? context.state.todo.find(t => t.id == props.currentPageId) : context.state.todoList.find(t => t.id == props.currentPageId)
-    
     const checkFc = (id)=>{
         
         context.dispach({

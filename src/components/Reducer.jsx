@@ -26,7 +26,7 @@ export function reducer(state, action, payload) {
                 todoList: state.todoList.map(u=>{
                     if(u.id == action.parentId){
                         return {...u, 
-                            info: [...u.info , {id: u.info.length , status:false , text: action.newTaskText}]}
+                            info: [...u.info , {id: u.info.at(-1) == undefined ? 0 : u.info.at(-1).id+1, status:false , text: action.newTaskText}]}
                     }
                     return u;
                 }) };
@@ -69,7 +69,7 @@ export function reducer(state, action, payload) {
                 todo: state.todo.map(u=>{
                     if(u.id == action.parentId){
                         return {...u, 
-                            info: [...u.info , {id: u.info.length , status:false , text: action.newTaskText}]}
+                            info: [...u.info , {id: u.info.at(-1).id +1 , status:false , text: action.newTaskText}]}
                     }
                     return u;
                 }) };
@@ -104,10 +104,21 @@ export function reducer(state, action, payload) {
                     return u;
                 }) 
             };
-
+        case 'add-list':
+            return{
+                ...state, 
+                todoList : [...state.todoList , {id : state.todoList.at(-1).id +1 , title: action.title , color:action.color , info : []}]
+            }
+        case 'delete-list':
+            return{
+                ...state, 
+                todoList : state.todoList.filter(i => i.id !== action.id)
+            }
+    
         default:
         return state;
     }
 }
 // 1.надо добавления list
+// удаления
 // 2.смена темы 
