@@ -179,3 +179,83 @@
   .todo-add__btn:hover {
     color: #e98760;
   }
+  .sticky-add-btn{
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background-color: #e98760;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    cursor: pointer;
+    font-size: 40px;
+    transition: 0.3s;
+  }
+  .sticky-add-btn span{
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 5px);
+    transform: translate(-50% , -50%);
+  }
+  .sticky-add{
+    visibility: hidden;
+  }
+  .sticky-add.active{
+    visibility:visible;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .sticly-add__conteiner{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #ffa581;
+    transform: translate(-50% , -50%);
+    border-radius: 15px;
+  }
+  .sticky-add__textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    background-color: #ffffff00;
+    border: none;
+    outline: none;
+    padding: 17px;
+    overflow-y: none;
+    font-size: 16.5px;
+    color: #fff;
+    font-family: 'Raleway';
+    font-weight: 300;
+    letter-spacing: 1.5px;
+  }
+  .sticly-add__button{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgb(103, 233, 96);
+    border: none;
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    cursor: pointer;
+  }
+  .sticly-add__button::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 23px;
+    left: 13px;
+    width: 27px;
+    height: 12px;
+    border-right: 2.5px solid #fff;
+    border-top: 2.5px solid #fff;
+    transform: rotate(135deg);
+  }

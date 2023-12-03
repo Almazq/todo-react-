@@ -48,6 +48,9 @@ const Menu = (props) =>{
             type : 'delete-list',
             id: id,
         })
+        if(props.currentPageId == id){
+            props.setCurrentPageId(0);
+        }
     }
     return(
         <div className='menu-block'>

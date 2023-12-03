@@ -10,6 +10,8 @@ import svgDelete from '../assets/delete.svg'
 
 const TodoBlock = (props) =>{
     const [inputValue , setInputValue] = useState('');
+    const [showSctickyAdd , setShowSctickyAdd] = useState(false);
+
     const context = React.useContext(stateContext);
     const currentData = props.currentPageId < 3 ? context.state.todo.find(t => t.id == props.currentPageId) : context.state.todoList.find(t => t.id == props.currentPageId)
     const checkFc = (id)=>{
@@ -48,14 +50,27 @@ const TodoBlock = (props) =>{
                     <div className="delete-task" onClick={()=> deleteTask(elem.id)}><img src={svgDelete} alt="delete"/></div>
                 </div>)}
             </div>
+            <div className={ showSctickyAdd ? "sticky-add active" : "sticky-add" }>
+                <div className="sticly-add__conteiner">
+                    <textarea name="sticky-task" cols="30" rows="5" className='sticky-add__textarea' maxlength="320"></textarea>
+                    <button className='sticly-add__button'></button>
+                </div>
+            </div>
+            {props.currentPageId === 2 ? 
+            
+            <div className="sticky-add-btn" onClick={()=> setShowSctickyAdd(!showSctickyAdd)}>
+                <span >+</span>
+            </div>
+            : 
             <div className={inputValue.length > 0  ? "todo-add active" : "todo-add"}>
-                <input type="text" name="todo" className='todo-add__input' value={inputValue} onChange={(e)=> setInputValue(e.target.value)}/> {/*  не забыть сделать привязку */} 
+                <input type="text" name="todo" className='todo-add__input' value={inputValue} onChange={(e)=> setInputValue(e.target.value)}/>
                     
-                <div className={inputValue.length > 0  ? "todo-add__btn active" :"todo-add__btn"} onClick ={ addTask}>{/*  надо сделать что бы менял цвет при написании */}
+                <div className={inputValue.length > 0  ? "todo-add__btn active" :"todo-add__btn"} onClick ={ addTask}>
                     <span>+</span>
                 </div>
 
             </div>
+            }
            
         </div>
     )
